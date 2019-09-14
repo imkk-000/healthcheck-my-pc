@@ -17,7 +17,6 @@ type ProcessInfo struct {
 	Pid            int32                   `json:"pid"`
 	Name           string                  `json:"name"`
 	CPUPercent     float64                 `json:"cpuPercent"`
-	CPUAffinity    []int32                 `json:"cpuAffinity"`
 	Cmdline        string                  `json:"cmdline"`
 	Exe            string                  `json:"exe"`
 	ConnStats      []net.ConnectionStat    `json:"connStats"`
