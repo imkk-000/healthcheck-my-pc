@@ -13,7 +13,7 @@ func TestGetProcessByName(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotEmpty(t, allProcs)
 
-	filterProcsByName, err := GetProcessByName("go")
+	filterProcsByName, err := GetProcessByName("go.exe")
 	assert.Nil(t, err)
 	assert.NotEmpty(t, filterProcsByName)
 
