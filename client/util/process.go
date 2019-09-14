@@ -43,9 +43,9 @@ func GetInfo(procs []*process.Process) model.HostInfo {
 		processInfo.Exe, _ = proc.Exe()
 		processInfo.MemoryInfoStat, _ = proc.MemoryInfo()
 		processInfo.ConnStats, _ = proc.Connections()
-
 		processesInfo = append(processesInfo, processInfo)
 	}
+
 	return model.HostInfo{
 		BootTime:          bootTime,
 		Uptime:            upTime,

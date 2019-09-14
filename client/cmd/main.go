@@ -33,12 +33,12 @@ func main() {
 
 		procs, err := process.Processes()
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		}
 
 		procs, err = util.GetProcessByName(procs, config.Target)
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 		}
 
 		data, err := json.Marshal(util.GetInfo(procs))
