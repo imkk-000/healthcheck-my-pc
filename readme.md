@@ -3,9 +3,12 @@
 ## Features
 
 - [X] Get Processes By Process Name
-- [ ] Get Information Each Process Such As CPU, Memory, Network, Uptime
-- [ ] Get PC Uptimes
+- [X] Get Information Each Process Such As CPU, Memory, Network, Uptime
+- [X] Get PC Uptimes
+- [ ] Run Inside Docker
+- [ ] Zip Data Before Send
+- [ ] Encrypt with RSA
 
 ## Client
 
-- UDP With Port 33810
+- HTTP With Port 5000
