@@ -3,6 +3,7 @@ package api
 import (
 	"healthcheck/server/service"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -34,12 +35,17 @@ func (api HealthcheckAPI) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		api.HealthcheckServiceImpl.SaveDataToCache(body)
+		log.Println(string(body))
+		w.WriteHeader(http.StatusOK)
 	case http.MethodGet:
+		cacheData := api.HealthcheckServiceImpl.GetCacheData()
+		if cacheData == nil {
+			cacheData = []byte("empty")
+		}
 		w.Header().Add("Content-Type", "application/json")
-		w.Write(api.HealthcheckServiceImpl.GetCacheData())
+		w.WriteHeader(http.StatusOK)
+		w.Write(cacheData)
 	default:
 		w.WriteHeader(http.StatusBadRequest)
-		return
 	}
-	w.WriteHeader(http.StatusOK)
 }
