@@ -10,7 +10,7 @@ type HealthcheckAPI struct {
 	HealthcheckServiceImpl service.HealthcheckService
 }
 
-func (api HealthcheckAPI) HealthcheckHandler(w http.ResponseWriter, r *http.Request) {
+func (api HealthcheckAPI) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// validate uri
 	switch r.URL.Path {
 	case "/healthcheck":

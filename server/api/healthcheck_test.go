@@ -20,7 +20,7 @@ func TestHealthcheckHandlerPostWithEmptyDataShouldBeStatusBadRequest(t *testing.
 	healthcheckAPI := &HealthcheckAPI{
 		HealthcheckServiceImpl: &mockHealthcheckService{},
 	}
-	healthcheckAPI.HealthcheckHandler(w, r)
+	healthcheckAPI.ServeHTTP(w, r)
 
 	assert.Equal(t, http.StatusBadRequest, w.Code)
 }
@@ -32,7 +32,7 @@ func TestHealthcheckHandlerPostWithEmptyURLShouldBeStatusBadRequest(t *testing.T
 	healthcheckAPI := &HealthcheckAPI{
 		HealthcheckServiceImpl: &mockHealthcheckService{},
 	}
-	healthcheckAPI.HealthcheckHandler(w, r)
+	healthcheckAPI.ServeHTTP(w, r)
 
 	assert.Equal(t, http.StatusBadRequest, w.Code)
 }
@@ -44,7 +44,7 @@ func TestHealthcheckHandlerGetDataWithSlashURLShouldBeRespData(t *testing.T) {
 	healthcheckAPI := &HealthcheckAPI{
 		HealthcheckServiceImpl: &mockHealthcheckService{},
 	}
-	healthcheckAPI.HealthcheckHandler(w, r)
+	healthcheckAPI.ServeHTTP(w, r)
 	body, err := ioutil.ReadAll(w.Body)
 
 	assert.Nil(t, err)
@@ -60,7 +60,7 @@ func TestHealthcheckHandlerPostDataShouldBeStatusOK(t *testing.T) {
 	healthcheckAPI := &HealthcheckAPI{
 		HealthcheckServiceImpl: &mockHealthcheckService{},
 	}
-	healthcheckAPI.HealthcheckHandler(w, r)
+	healthcheckAPI.ServeHTTP(w, r)
 
 	assert.Equal(t, http.StatusOK, w.Code)
 }
