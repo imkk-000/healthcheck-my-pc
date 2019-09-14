@@ -1,7 +1,7 @@
 package service
 
 type HealthcheckService interface {
-	SaveDataToCache(data []byte) error
+	SaveDataToCache(data []byte)
 	GetCacheData() []byte
 }
 
