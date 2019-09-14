@@ -2,9 +2,9 @@
 
 ## Features
 
-- Get Processes By Process Name
-- Get Information Each Process Such As CPU, Memory, Network, Uptime
-- Get PC Uptimes
+- [X] Get Processes By Process Name
+- [ ] Get Information Each Process Such As CPU, Memory, Network, Uptime
+- [ ] Get PC Uptimes
 
 ## Client
 
