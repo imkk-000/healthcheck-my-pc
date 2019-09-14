@@ -1,22 +1,43 @@
 package api
 
 import (
+	"healthcheck/server/service"
 	"io/ioutil"
 	"net/http"
 )
 
-func HealthcheckHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+type HealthcheckAPI struct {
+	HealthcheckServiceImpl service.HealthcheckService
+}
+
+func (api HealthcheckAPI) HealthcheckHandler(w http.ResponseWriter, r *http.Request) {
+	// validate uri
+	switch r.URL.Path {
+	case "/healthcheck":
+	case "/healthcheck/":
+	default:
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	body, err := ioutil.ReadAll(r.Body)
-	defer r.Body.Close()
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-	if len(body) == 0 {
+	// validate method
+	switch r.Method {
+	case http.MethodPost:
+		// get body
+		body, err := ioutil.ReadAll(r.Body)
+		defer r.Body.Close()
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		if len(body) == 0 {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		api.HealthcheckServiceImpl.SaveDataToCache(body)
+	case http.MethodGet:
+		w.Header().Add("Content-Type", "application/json")
+		w.Write(api.HealthcheckServiceImpl.GetCacheData())
+	default:
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
