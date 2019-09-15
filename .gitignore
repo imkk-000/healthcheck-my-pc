@@ -1,1 +1,4 @@
+pkg
+bin
+
 config/*.json
