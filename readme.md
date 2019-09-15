@@ -8,6 +8,19 @@
 - [ ] Zip data before send
 - [ ] Encrypt with RSA
 
+## How to get only code coverage
+
+```sh
+go test ./... -cover
+```
+
+## How to get code coverage for create html
+
+```sh
+go test ./... -cover -coverprofile=cover.out
+go tool cover -html=cover.out
+```
+
 ## How to build client
 
 ```sh
