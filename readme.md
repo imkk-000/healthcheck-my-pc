@@ -7,6 +7,7 @@
 - [X] Run server inside docker
 - [ ] Zip data before send
 - [ ] Encrypt with RSA
+- [ ] Support multiple client
 
 ## How to get only code coverage
 
