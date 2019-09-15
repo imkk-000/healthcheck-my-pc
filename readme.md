@@ -2,11 +2,10 @@
 
 ## Features
 
-- [X] Get Processes By Process Name
-- [X] Get Information Each Process Such As CPU, Memory, Network, Uptime
-- [X] Get PC Uptimes
-- [ ] Run Inside Docker
-- [ ] Zip Data Before Send
+- [X] Get processes by process name
+- [X] Get information each process such as CPU, Memory, Network, Uptime
+- [X] Run server inside docker
+- [ ] Zip data before send
 - [ ] Encrypt with RSA
 
 ## How to build client
