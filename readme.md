@@ -9,6 +9,10 @@
 - [ ] Encrypt with RSA
 - [ ] Support multiple client
 
+## TODO:
+
+- [ ] Fix getting network information from process into Windows
+
 ## How to get only code coverage
 
 ```sh
