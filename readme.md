@@ -12,6 +12,7 @@
 ## TODO:
 
 - [ ] Fix getting network information from process into Windows
+- [ ] Attach local time with healthcheck data
 
 ## How to get only code coverage
 
