@@ -8,6 +8,7 @@
 - [ ] Zip data before send
 - [ ] Encrypt with RSA
 - [ ] Support multiple client
+- [ ] Authentication
 
 ## TODO:
 
